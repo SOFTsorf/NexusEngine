@@ -31,156 +31,72 @@
             overflow: hidden;
         }
 
-        /* --- View System --- */
-        .view {
-            display: none;
-            height: calc(100vh - 65px);
-            overflow-y: auto;
-            padding-bottom: 20px;
-        }
+        /* --- Generische Klassen --- */
+        .view { display: none; height: calc(100vh - 65px); overflow-y: auto; padding-bottom: 20px; }
         .view.active { display: block; }
-        
-        /* Material Symbol FILL Helper */
         .fill-icon { font-variation-settings: 'FILL' 1; }
+        
+        /* Spinner */
+        .loader {
+            border: 3px solid var(--surface); border-top: 3px solid var(--google-blue);
+            border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* --- Header & Logo --- */
         .header-logo {
-            text-align: center;
-            padding: 30px 0 20px;
-            font-size: 44px;
-            font-family: 'Google Sans', sans-serif;
-            font-weight: 500;
-            letter-spacing: -2px;
-            position: relative;
+            text-align: center; padding: 30px 0 20px; font-size: 44px; font-weight: 500; letter-spacing: -2px;
         }
         .n { color: var(--google-blue); } .e { color: var(--google-red); } .x { color: var(--google-yellow); } .u { color: var(--google-blue); } .s { color: var(--google-green); }
-        .header-doodle { position: absolute; top: 10px; right: 20%; width: 40px; opacity: 0.8; }
 
-        /* --- Search Bar (Home) --- */
+        /* --- Search Bar --- */
         .search-trigger {
-            margin: 0 16px 20px;
-            background: var(--surface);
-            height: 64px;
-            border-radius: 32px;
-            display: flex;
-            align-items: center;
-            padding: 0 16px 0 24px;
-            gap: 15px;
-            font-size: 18px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin: 0 16px 20px; background: var(--surface); height: 64px; border-radius: 32px;
+            display: flex; align-items: center; padding: 0 16px 0 24px; gap: 15px; font-size: 18px;
+            color: var(--text-secondary); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        .search-trigger .material-symbols-outlined { color: var(--text-primary); }
 
-        /* --- Action Row (KI-Modus, etc.) --- */
-        .actions-row {
-            display: flex;
-            gap: 12px;
-            padding: 0 16px;
-            margin-bottom: 20px;
-        }
+        /* --- Action Row --- */
+        .actions-row { display: flex; gap: 12px; padding: 0 16px; margin-bottom: 20px; }
         .action-chip {
-            background: var(--surface);
-            border-radius: 24px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            flex: 1;
-            cursor: pointer;
+            background: var(--surface); border-radius: 24px; height: 48px; display: flex; align-items: center;
+            padding: 0 20px; gap: 8px; font-size: 14px; font-weight: 500; flex: 1; cursor: pointer;
         }
-        .action-chip-icon { color: #d7c5ff; } /* Lila für KI */
+        .action-chip-icon { color: #d7c5ff; }
         .action-btn {
-            background: var(--surface);
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            background: var(--surface); border-radius: 50%; width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
         }
 
         /* --- Widgets --- */
         .widgets {
-            display: flex;
-            gap: 12px;
-            padding: 0 16px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            margin-bottom: 24px;
+            display: flex; gap: 12px; padding: 0 16px; overflow-x: auto; scrollbar-width: none; margin-bottom: 24px;
         }
         .widgets::-webkit-scrollbar { display: none; }
         .widget {
-            background: var(--surface);
-            min-width: 140px;
-            padding: 12px 16px;
-            border-radius: 16px;
-            font-size: 13px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            cursor: pointer;
-            border: 1px solid #3c4043;
+            background: var(--surface); min-width: 140px; padding: 12px 16px; border-radius: 16px;
+            font-size: 13px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #3c4043;
         }
         .widget-title { color: var(--text-primary); font-weight: 500; font-size: 12px; }
         .widget-content { display: flex; align-items: center; gap: 6px; font-size: 16px; font-weight: 500; }
 
-        /* --- News Feed (Mock) --- */
-        .feed-card {
-            margin: 0 0 16px 0;
-            border-bottom: 1px solid var(--divider);
-            padding-bottom: 16px;
-            cursor: pointer;
-        }
-        .feed-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 16px 12px;
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
+        /* --- News Feed --- */
+        .feed-card { margin: 0 0 16px 0; border-bottom: 1px solid var(--divider); padding-bottom: 16px; cursor: pointer; }
+        .feed-header { display: flex; justify-content: space-between; align-items: center; padding: 0 16px 12px; font-size: 12px; color: var(--text-secondary); }
         .feed-header-left { display: flex; align-items: center; gap: 8px; }
-        .feed-source-icon { width: 16px; height: 16px; border-radius: 50%; background: #fff; }
-        .feed-img-container { position: relative; width: 100%; height: 210px; background: #000; }
+        .feed-source-icon { width: 16px; height: 16px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden;}
+        .feed-source-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .feed-img-container { width: 100%; height: 210px; background: #202124; }
         .feed-img { width: 100%; height: 100%; object-fit: cover; }
-        .video-duration {
-            position: absolute;
-            bottom: 8px; left: 8px;
-            background: rgba(0,0,0,0.7);
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-weight: 500;
-        }
-        .feed-title {
-            padding: 12px 16px 0;
-            font-size: 20px;
-            line-height: 1.3;
-            font-family: 'Google Sans', sans-serif;
-            font-weight: 400;
-        }
+        .feed-title { padding: 12px 16px 0; font-size: 20px; line-height: 1.3; font-weight: 400; }
 
         /* --- Search Overlay --- */
         #search-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg); z-index: 1000;
-            display: none; flex-direction: column;
+            background: var(--bg); z-index: 1000; display: none; flex-direction: column;
         }
         #search-overlay.active { display: flex; }
-        
-        .search-header {
-            display: flex; align-items: center; padding: 8px 16px; gap: 12px;
-        }
+        .search-header { display: flex; align-items: center; padding: 8px 16px; gap: 12px; }
         .search-input-wrapper {
             flex: 1; background: var(--surface); height: 48px; border-radius: 24px;
             display: flex; align-items: center; padding: 0 16px; gap: 12px;
@@ -188,97 +104,61 @@
         .search-input-wrapper input {
             background: transparent; border: none; color: white; width: 100%; font-size: 16px; outline: none;
         }
-        .search-input-wrapper .material-symbols-outlined { color: var(--google-blue); }
-
-        /* --- History List --- */
-        .history-list { padding-top: 8px; }
-        .history-item {
-            display: flex; padding: 12px 16px; align-items: center; gap: 16px; cursor: pointer;
-        }
+        .history-list { padding-top: 8px; overflow-y: auto; flex: 1; }
+        .history-item { display: flex; padding: 12px 16px; align-items: center; gap: 16px; cursor: pointer; }
         .history-icon { color: var(--text-secondary); }
         .history-text { flex: 1; font-size: 16px; }
         .history-sub { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
 
-        /* --- Aktivität --- */
+        /* --- Activity View --- */
         .activity-header-title { padding: 16px; font-size: 22px; font-weight: 400; border-bottom: 1px solid var(--divider); }
-        .activity-section-title {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 24px 16px 12px; font-size: 16px; font-weight: 500;
-        }
-        .nexus-g-icon {
-            width: 32px; height: 32px; border-radius: 50%;
-            background: #fff; display: flex; align-items: center; justify-content: center;
-            font-weight: bold; font-size: 18px; color: var(--google-blue);
-        }
-        .act-history-item {
-            display: flex; align-items: center; padding: 12px 16px; gap: 16px; background: var(--surface); margin: 4px 16px; border-radius: 16px;
-        }
+        .activity-section-title { display: flex; justify-content: space-between; align-items: center; padding: 24px 16px 12px; font-size: 16px; font-weight: 500; }
+        .act-history-item { display: flex; align-items: center; padding: 12px 16px; gap: 16px; background: var(--surface); margin: 4px 16px; border-radius: 16px; cursor: pointer; }
+        .nexus-g-icon { width: 32px; height: 32px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; }
 
-        /* --- Notifications --- */
-        .notif-header { display: flex; justify-content: space-between; padding: 16px; font-size: 22px; }
-        .notif-empty {
-            display: flex; flex-direction: column; align-items: center; text-align: center; padding: 60px 30px;
-        }
-        .notif-empty h3 { font-size: 18px; font-weight: 400; margin: 24px 0 8px; }
-        .notif-empty p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
-        
-        /* SVG Mock for Notifications */
-        .notif-svg { width: 160px; height: 160px; margin-bottom: 20px; }
-
-        /* --- Voice Overlay --- */
-        #voice-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #131314; z-index: 2000; display: none;
-            flex-direction: column; align-items: center;
-        }
-        .voice-top { width: 100%; display: flex; justify-content: space-between; padding: 16px; }
-        .voice-nexus-logo { font-size: 24px; font-weight: 500; letter-spacing: -1px; }
-        .voice-status { font-size: 32px; font-weight: 400; margin-top: 100px; color: var(--text-secondary); }
-        .voice-face { width: 100px; height: 100px; margin-top: 60px; }
-        .face-svg { stroke: var(--google-blue); fill: none; stroke-width: 3; stroke-linecap: round; }
-        .voice-bottom {
-            position: absolute; bottom: 0; width: 100%; display: flex; flex-direction: column; align-items: center;
-        }
-        .music-btn {
-            background: var(--surface); color: var(--text-primary); border-radius: 20px;
-            padding: 10px 20px; display: flex; align-items: center; gap: 8px; font-size: 14px; margin-bottom: 40px;
-        }
-        .voice-wave {
-            width: 100%; height: 4px; background: linear-gradient(90deg, #4285f4 0%, #ea4335 33%, #fbbc05 66%, #34a853 100%);
-            box-shadow: 0 -2px 10px rgba(66, 133, 244, 0.5);
-        }
-
-        /* --- Google In-App Browser --- */
-        #google-view {
+        /* --- Overlays (Browser & KI) --- */
+        .overlay-view {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--bg); z-index: 3000; display: flex; flex-direction: column;
             transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-        #google-view.active { transform: translateY(0); }
-        .google-header {
+        .overlay-view.active { transform: translateY(0); }
+        .overlay-header {
             height: 56px; background: var(--nav-bg); display: flex; align-items: center;
             padding: 0 16px; border-bottom: 1px solid var(--divider); justify-content: space-between;
         }
-        #google-iframe { flex: 1; width: 100%; border: none; background: #fff; }
+        .overlay-iframe { flex: 1; width: 100%; border: none; background: #fff; }
+        .browser-loading { display: none; padding: 0 16px; }
+
+        /* --- Voice Overlay --- */
+        #voice-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #131314; z-index: 4000; display: none; flex-direction: column; align-items: center;
+        }
+        .voice-top { width: 100%; display: flex; justify-content: space-between; padding: 16px; }
+        .voice-nexus-logo { font-size: 24px; font-weight: 500; }
+        .voice-status { font-size: 32px; font-weight: 400; margin-top: 100px; color: var(--text-secondary); text-align: center; padding: 0 20px; }
+        .voice-face { width: 100px; height: 100px; margin-top: 60px; }
+        .face-svg { stroke: var(--google-blue); fill: none; stroke-width: 3; stroke-linecap: round; }
+        .voice-bottom { position: absolute; bottom: 0; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        .music-btn {
+            background: var(--surface); color: var(--text-primary); border-radius: 20px;
+            padding: 10px 20px; display: flex; align-items: center; gap: 8px; font-size: 14px; margin-bottom: 40px; cursor: pointer;
+        }
+        .voice-wave { width: 100%; height: 4px; background: linear-gradient(90deg, #4285f4 0%, #ea4335 33%, #fbbc05 66%, #34a853 100%); box-shadow: 0 -2px 10px rgba(66, 133, 244, 0.5); }
 
         /* --- Navigation --- */
         nav {
-            position: fixed; bottom: 0; width: 100%; height: 65px;
-            background: var(--nav-bg); display: flex; justify-content: space-around; align-items: center;
-            z-index: 500;
+            position: fixed; bottom: 0; width: 100%; height: 65px; background: var(--nav-bg);
+            display: flex; justify-content: space-around; align-items: center; z-index: 500;
         }
         .nav-item {
-            display: flex; flex-direction: column; align-items: center;
-            color: var(--text-secondary); font-size: 11px; gap: 4px; cursor: pointer; width: 25%; font-weight: 500;
+            display: flex; flex-direction: column; align-items: center; color: var(--text-secondary);
+            font-size: 11px; gap: 4px; cursor: pointer; width: 25%; font-weight: 500;
         }
         .nav-item.active { color: #fff; }
-        .nav-item .material-symbols-outlined { font-size: 24px; }
-        
-        .active-pill {
-            background: rgba(138, 180, 248, 0.15); /* Zarter blauer Hintergrund für aktives Tab */
-            padding: 4px 16px;
-            border-radius: 16px;
-        }
+        .active-pill { background: rgba(138, 180, 248, 0.15); padding: 4px 16px; border-radius: 16px; }
+
     </style>
 </head>
 <body>
@@ -291,52 +171,33 @@
         <div class="search-trigger" onclick="openSearch()">
             <span style="flex:1">Suchen</span>
             <span class="material-symbols-outlined" style="color: var(--text-primary)" onclick="startVoice(event)">mic</span>
-            <span class="material-symbols-outlined" style="color: var(--text-primary)">center_focus_strong</span>
         </div>
 
         <div class="actions-row">
-            <div class="action-chip" onclick="alert('KI-Modus aktiviert!')">
+            <div class="action-chip" onclick="openKI()">
                 <span class="material-symbols-outlined action-chip-icon fill-icon">temp_preferences_custom</span> 
                 KI-Modus
             </div>
             <div class="action-btn" onclick="startVoice(event)">
                 <span class="material-symbols-outlined">music_note</span>
             </div>
-            <div class="action-btn">
-                <span class="material-symbols-outlined">image</span>
-            </div>
         </div>
 
         <div class="widgets">
-            <div class="widget">
+            <div class="widget" onclick="executeGoogleSearch('Wetter Vallendar')">
                 <div class="widget-title">Vallendar</div>
-                <div class="widget-content">10° <span class="material-symbols-outlined" style="font-size:16px; color:#a8c7fa">rainy</span> 45%</div>
+                <div class="widget-content" id="weather-widget">
+                    <div class="loader" style="width:16px; height:16px; border-width:2px;"></div>
+                </div>
             </div>
-            <div class="widget">
+            <div class="widget" onclick="executeGoogleSearch('Sonnenaufgang')">
                 <div class="widget-title">Sonnenaufgang m...</div>
-                <div class="widget-content">7:26 AM <span class="material-symbols-outlined fill-icon" style="font-size:16px; color:var(--google-yellow)">clear_day</span></div>
-            </div>
-            <div class="widget">
-                <div class="widget-title">Luftqualität</div>
-                <div class="widget-content">Gut <span class="material-symbols-outlined fill-icon" style="font-size:16px; color:var(--google-green)">eco</span></div>
+                <div class="widget-content" id="sunrise-widget">Lade...</div>
             </div>
         </div>
 
         <div id="news-feed-container">
-            <div class="feed-card">
-                <div class="feed-header">
-                    <div class="feed-header-left">
-                        <div class="feed-source-icon" style="background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Euronews_logo_2016.svg/1200px-Euronews_logo_2016.svg.png') center/cover;"></div>
-                        <span>euronews (deutsch)</span>
-                    </div>
-                    <span class="material-symbols-outlined">more_vert</span>
-                </div>
-                <div class="feed-img-container">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1000&auto=format&fit=crop" class="feed-img" alt="Roboter">
-                    <div class="video-duration"><span class="material-symbols-outlined fill-icon" style="font-size: 16px;">play_arrow</span> 1:01</div>
-                </div>
-                <div class="feed-title">China präsentiert Kampfkunst-Roboter – muss sich Eur...</div>
-            </div>
+            <div style="padding: 20px; text-align: center;"><div class="loader"></div></div>
         </div>
     </div>
 
@@ -345,24 +206,18 @@
             <span class="material-symbols-outlined" style="padding:8px; cursor:pointer;" onclick="closeSearch()">arrow_back</span>
             <div class="search-input-wrapper">
                 <input type="text" id="main-search-input" placeholder="Suchen..." onkeypress="handleSearchInput(event)">
-                <span class="material-symbols-outlined" style="cursor:pointer;" onclick="startVoice(event)">mic</span>
-                <span class="material-symbols-outlined" style="cursor:pointer; color:var(--text-primary)">center_focus_strong</span>
+                <span class="material-symbols-outlined" style="cursor:pointer; color: var(--google-blue);" onclick="startVoice(event)">mic</span>
             </div>
         </div>
-        <div id="overlay-history-list" class="history-list">
-            <div class="history-item"><span class="material-symbols-outlined history-icon">schedule</span><div class="history-text">roblox verified badge to copy</div></div>
-            <div class="history-item"><span class="material-symbols-outlined history-icon">schedule</span><div class="history-text">grim sekt<div class="history-sub">Bilder</div></div></div>
-            <div class="history-item"><span class="material-symbols-outlined history-icon">schedule</span><div class="history-text">apple.com</div></div>
-        </div>
+        <div id="overlay-history-list" class="history-list"></div>
     </div>
 
     <div id="view-notifications" class="view">
-        <div class="notif-header">
-            <span>Benachrichtigungen</span>
-            <span class="material-symbols-outlined">more_vert</span>
+        <div style="display: flex; justify-content: space-between; padding: 16px; font-size: 22px;">
+            <span>Benachrichtigungen</span><span class="material-symbols-outlined">more_vert</span>
         </div>
-        <div class="notif-empty">
-            <svg class="notif-svg" viewBox="0 0 100 100">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 60px 30px;">
+            <svg style="width: 160px; height: 160px; margin-bottom: 20px;" viewBox="0 0 100 100">
                 <rect x="20" y="25" width="60" height="50" rx="8" fill="#e8eaed" />
                 <circle cx="45" cy="45" r="15" fill="#a8c7fa" />
                 <rect x="30" y="60" width="30" height="10" rx="5" fill="#4285f4" />
@@ -372,104 +227,81 @@
                 <path d="M55,25 L70,25 L70,40 Z" fill="#fcc934" />
                 <polygon points="65,45 80,45 72,55" fill="#9aa0a6" />
             </svg>
-            <h3>Keine aktuellen Benachrichtigungen</h3>
-            <p>Du kannst bei der Suche Themen folgen, um<br>über Inhalte, die dich interessieren, auf dem<br>Laufenden zu bleiben</p>
+            <h3 style="font-size: 18px; font-weight: 400; margin: 24px 0 8px;">Keine aktuellen Benachrichtigungen</h3>
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">Du kannst bei der Suche Themen folgen, um<br>über Inhalte, die dich interessieren, auf dem<br>Laufenden zu bleiben</p>
         </div>
     </div>
 
     <div id="view-activity" class="view">
         <div class="activity-header-title">Aktivität</div>
-        
-        <div class="activity-section-title">
-            <span>Verlauf</span>
-            <span class="material-symbols-outlined">chevron_right</span>
+        <div class="activity-section-title"><span>Verlauf</span><span class="material-symbols-outlined">chevron_right</span></div>
+        <div id="main-history-list"></div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="clearHistory()" style="background: var(--surface); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer;">Verlauf löschen</button>
         </div>
-        <div id="main-history-list">
-            <div class="act-history-item">
-                <div class="nexus-g-icon"><span class="n">G</span></div>
-                <div class="history-text">hallo<div class="history-sub">So, 22 Feb 21:32 • www.google.com</div></div>
-                <span class="material-symbols-outlined">more_vert</span>
-            </div>
-            <div class="act-history-item">
-                <div class="nexus-g-icon"><span class="e">G</span></div>
-                <div class="history-text">Wetter<div class="history-sub">So, 22 Feb 21:31 • www.google.com</div></div>
-                <span class="material-symbols-outlined">more_vert</span>
-            </div>
-        </div>
+    </div>
 
-        <div class="activity-section-title">
-            <span>Gespeicherte Inhalte</span>
-            <span class="material-symbols-outlined">chevron_right</span>
-        </div>
-        <div style="display:flex; gap:12px; padding:0 16px; overflow-x:auto;">
-            <div style="width:140px; height:140px; background:#000; border-radius:16px; position:relative; overflow:hidden;">
-                <div style="position:absolute; bottom:8px; left:8px; font-size:12px; font-weight:500;">Instagram<br><span style="color:var(--text-secondary); font-size:10px;">instagram.com</span></div>
-                <span class="material-symbols-outlined" style="position:absolute; top:8px; right:8px;">more_vert</span>
+    <div id="ki-overlay" class="overlay-view">
+        <div class="overlay-header">
+            <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:var(--text-secondary);">
+                <span class="material-symbols-outlined action-chip-icon fill-icon" style="font-size: 18px;">temp_preferences_custom</span>
+                KI-Assistent Alpha
             </div>
-            <div style="width:140px; height:140px; background:#202124; border-radius:16px; position:relative; overflow:hidden;">
-                <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=200&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                <div style="position:absolute; bottom:8px; left:8px; font-size:12px; font-weight:500;">Kurz vor rätselhaftem Ein...<br><span style="color:var(--text-secondary); font-size:10px;">fr.de</span></div>
-                <span class="material-symbols-outlined" style="position:absolute; top:8px; right:8px;">more_vert</span>
-            </div>
+            <span class="material-symbols-outlined" onclick="closeKI()" style="cursor:pointer;">close</span>
         </div>
+        <div id="ki-loader" class="browser-loading"><div class="loader" style="margin-top:20px;"></div></div>
+        <iframe id="ki-iframe" class="overlay-iframe" sandbox="allow-same-origin allow-scripts allow-forms allow-popups"></iframe>
+    </div>
+
+    <div id="google-overlay" class="overlay-view">
+        <div class="overlay-header">
+            <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:var(--text-secondary);">
+                <span class="material-symbols-outlined" style="font-size: 18px;">lock</span>
+                google.com
+            </div>
+            <span class="material-symbols-outlined" onclick="closeBrowser()" style="cursor:pointer;">close</span>
+        </div>
+        <div id="browser-loader" class="browser-loading"><div class="loader" style="margin-top:20px;"></div></div>
+        <iframe id="google-iframe" class="overlay-iframe" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
     </div>
 
     <div id="voice-overlay" onclick="stopVoice()">
         <div class="voice-top">
             <span class="material-symbols-outlined">arrow_back</span>
-            <div class="voice-nexus-logo"><span class="n">G</span></div>
+            <div class="voice-nexus-logo"><span class="n">N</span></div>
             <span class="material-symbols-outlined">more_vert</span>
         </div>
         <div class="voice-status" id="voice-status">Bereit...</div>
         <div class="voice-face">
             <svg class="face-svg" viewBox="0 0 100 100">
-                <line x1="30" y1="35" x2="45" y2="30" />
-                <circle cx="35" cy="45" r="3" fill="var(--google-blue)" stroke="none" />
-                <line x1="70" y1="35" x2="55" y2="30" />
-                <circle cx="65" cy="45" r="3" fill="var(--google-blue)" stroke="none" />
-                <path d="M50 50 L48 60 Q48 65 52 65" />
-                <path d="M45 75 Q55 80 65 70" />
-                <path d="M20 30 Q15 60 40 85 Q50 90 65 90" />
+                <line x1="30" y1="35" x2="45" y2="30" /> <circle cx="35" cy="45" r="3" fill="var(--google-blue)" stroke="none" />
+                <line x1="70" y1="35" x2="55" y2="30" /> <circle cx="65" cy="45" r="3" fill="var(--google-blue)" stroke="none" />
+                <path d="M50 50 L48 60 Q48 65 52 65" /> <path d="M45 75 Q55 80 65 70" />
             </svg>
         </div>
         <div class="voice-bottom">
-            <div class="music-btn"><span class="material-symbols-outlined" style="font-size:18px;">music_note</span> Musik erkennen</div>
+            <div class="music-btn" onclick="alert('Musikerkennung gestartet (Demo)')"><span class="material-symbols-outlined" style="font-size:18px;">music_note</span> Musik erkennen</div>
             <div class="voice-wave"></div>
         </div>
     </div>
 
-    <div id="google-view">
-        <div class="google-header">
-            <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:var(--text-secondary);">
-                <span class="material-symbols-outlined" style="font-size: 18px;">lock</span>
-                google.com
-            </div>
-            <span class="material-symbols-outlined" onclick="closeGoogleView()" style="cursor:pointer;">close</span>
-        </div>
-        <iframe id="google-iframe" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-    </div>
-
     <nav>
         <div class="nav-item active" onclick="switchView('view-home', this)">
-            <div class="active-pill"><span class="material-symbols-outlined fill-icon">home</span></div>
-            Startseite
+            <div class="active-pill"><span class="material-symbols-outlined fill-icon">home</span></div>Startseite
         </div>
         <div class="nav-item" onclick="openSearch()">
-            <div><span class="material-symbols-outlined">search</span></div>
-            Suche
+            <div><span class="material-symbols-outlined">search</span></div>Suche
         </div>
         <div class="nav-item" onclick="switchView('view-notifications', this)">
-            <div><span class="material-symbols-outlined">notifications</span></div>
-            Benachrichtig...
+            <div><span class="material-symbols-outlined">notifications</span></div>Benachrichtig...
         </div>
         <div class="nav-item" onclick="switchView('view-activity', this)">
-            <div><span class="material-symbols-outlined">history</span></div>
-            Aktivität
+            <div><span class="material-symbols-outlined">history</span></div>Aktivität
         </div>
     </nav>
 
     <script>
-        // --- 1. View Navigation ---
+        // --- Navigation ---
         function switchView(viewId, navElement) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.getElementById(viewId).classList.add('active');
@@ -485,68 +317,229 @@
                 navElement.querySelector('.material-symbols-outlined').classList.add('fill-icon');
                 navElement.querySelector('div').classList.add('active-pill');
             }
+            if(viewId === 'view-activity') renderHistory();
         }
 
-        // --- 2. Suche Overlay (von rechts) ---
+        // --- Live API Daten (Wetter & Sunrise) ---
+        async function loadWidgets() {
+            try {
+                // Open-Meteo API für Vallendar (Lat: 50.4, Lon: 7.61)
+                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=50.4&longitude=7.61&current_weather=true&daily=sunrise,sunset&timezone=Europe%2FBerlin');
+                const data = await res.json();
+                
+                // Wetter setzen
+                const temp = Math.round(data.current_weather.temperature);
+                let icon = 'cloud';
+                if(data.current_weather.weathercode <= 1) icon = 'clear_day';
+                else if(data.current_weather.weathercode >= 60) icon = 'rainy';
+                
+                document.getElementById('weather-widget').innerHTML = `${temp}° <span class="material-symbols-outlined fill-icon" style="font-size:16px; color:#a8c7fa">${icon}</span>`;
+                
+                // Sonnenaufgang setzen
+                const sunriseTime = new Date(data.daily.sunrise[0]).toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'});
+                document.getElementById('sunrise-widget').innerHTML = `${sunriseTime} <span class="material-symbols-outlined fill-icon" style="font-size:16px; color:var(--google-yellow)">clear_day</span>`;
+            } catch (e) {
+                document.getElementById('weather-widget').innerText = "Fehler";
+                document.getElementById('sunrise-widget').innerText = "Fehler";
+            }
+        }
+        loadWidgets();
+
+        // --- Live News Feed (RSS2JSON für echte Tagesschau-Daten) ---
+        async function loadNews() {
+            const container = document.getElementById('news-feed-container');
+            try {
+                // RSS2JSON umgeht CORS Probleme bei öffentlichen RSS Feeds
+                const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.tagesschau.de%2Fxml%2Frss2');
+                const data = await res.json();
+                
+                if(data.status === 'ok') {
+                    container.innerHTML = '';
+                    const articles = data.items.slice(0, 10);
+                    
+                    articles.forEach(item => {
+                        const imgUrl = item.enclosure ? item.enclosure.link : 'https://images.unsplash.com/photo-1495020689067-958852a7765e?w=800&q=80'; // Fallback Bild
+                        
+                        const card = document.createElement('div');
+                        card.className = 'feed-card';
+                        card.onclick = () => window.open(item.link, '_blank');
+                        
+                        card.innerHTML = `
+                            <div class="feed-header">
+                                <div class="feed-header-left">
+                                    <div class="feed-source-icon"><span style="color:black; font-weight:bold; font-size:10px;">TS</span></div>
+                                    <span>Tagesschau</span>
+                                </div>
+                                <span class="material-symbols-outlined">more_vert</span>
+                            </div>
+                            <div class="feed-img-container">
+                                <img src="${imgUrl}" class="feed-img">
+                            </div>
+                            <div class="feed-title">${item.title}</div>
+                        `;
+                        container.appendChild(card);
+                    });
+                }
+            } catch (e) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center;">Feed konnte nicht geladen werden.</div>';
+            }
+        }
+        loadNews();
+
+        // --- Suche & Verlauf ---
         const searchOverlay = document.getElementById('search-overlay');
         const searchInput = document.getElementById('main-search-input');
 
         function openSearch() {
             searchOverlay.classList.add('active');
             searchInput.value = '';
-            searchInput.focus();
+            setTimeout(() => searchInput.focus(), 100);
+            renderSearchHistory();
         }
 
-        function closeSearch() {
-            searchOverlay.classList.remove('active');
-        }
+        function closeSearch() { searchOverlay.classList.remove('active'); }
 
         function handleSearchInput(event) {
             if (event.key === 'Enter') {
                 const query = searchInput.value.trim();
-                if (query !== '') {
+                if (query) {
+                    saveToHistory(query);
                     closeSearch();
                     executeGoogleSearch(query);
                 }
             }
         }
 
-        // --- 3. In-App Browser (Google Suche) ---
-        function executeGoogleSearch(query) {
-            const googleView = document.getElementById('google-view');
-            const iframe = document.getElementById('google-iframe');
+        function saveToHistory(query) {
+            let history = JSON.parse(localStorage.getItem('nexus_history') || '[]');
+            const now = new Date();
+            const timeString = now.toLocaleDateString('de-DE', {weekday: 'short', day: '2-digit', month: 'short'}) + " " + now.toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'});
             
-            iframe.src = `https://www.google.com/search?q=${encodeURIComponent(query)}&igu=1`;
-            googleView.classList.add('active');
+            history.unshift({ q: query, t: timeString });
+            localStorage.setItem('nexus_history', JSON.stringify(history.slice(0, 30)));
         }
 
-        function closeGoogleView() {
-            const googleView = document.getElementById('google-view');
-            googleView.classList.remove('active');
-            setTimeout(() => { document.getElementById('google-iframe').src = ''; }, 300);
+        function renderSearchHistory() {
+            const container = document.getElementById('overlay-history-list');
+            const history = JSON.parse(localStorage.getItem('nexus_history') || '[]');
+            container.innerHTML = history.slice(0, 10).map(item => `
+                <div class="history-item" onclick="executeGoogleSearch('${item.q}')">
+                    <span class="material-symbols-outlined history-icon">schedule</span>
+                    <div class="history-text">${item.q}</div>
+                    <span class="material-symbols-outlined history-icon" style="transform: rotate(-45deg);">arrow_upward</span>
+                </div>
+            `).join('');
         }
 
-        // --- 4. Sprachsteuerung (Mock passend zum Interface) ---
+        function renderHistory() {
+            const container = document.getElementById('main-history-list');
+            const history = JSON.parse(localStorage.getItem('nexus_history') || '[]');
+            if(history.length === 0) {
+                container.innerHTML = '<div style="padding:16px; color:var(--text-secondary);">Kein Verlauf vorhanden.</div>';
+                return;
+            }
+            container.innerHTML = history.map(item => `
+                <div class="act-history-item" onclick="executeGoogleSearch('${item.q}')">
+                    <div class="nexus-g-icon"><span class="n">N</span></div>
+                    <div class="history-text">${item.q}<div class="history-sub">${item.t} • google.com</div></div>
+                    <span class="material-symbols-outlined">more_vert</span>
+                </div>
+            `).join('');
+        }
+
+        function clearHistory() {
+            localStorage.removeItem('nexus_history');
+            renderHistory();
+        }
+
+        // --- In-App Browser (Google Search) ---
+        const googleOverlay = document.getElementById('google-overlay');
+        const googleIframe = document.getElementById('google-iframe');
+        const browserLoader = document.getElementById('browser-loader');
+
+        googleIframe.onload = () => { browserLoader.style.display = 'none'; };
+
+        function executeGoogleSearch(query) {
+            saveToHistory(query);
+            browserLoader.style.display = 'block';
+            googleIframe.src = `https://www.google.com/search?q=${encodeURIComponent(query)}&igu=1`;
+            googleOverlay.classList.add('active');
+            renderHistory();
+        }
+
+        function closeBrowser() {
+            googleOverlay.classList.remove('active');
+            setTimeout(() => { googleIframe.src = ''; }, 300);
+        }
+
+        // --- KI Modus ---
+        const kiOverlay = document.getElementById('ki-overlay');
+        const kiIframe = document.getElementById('ki-iframe');
+        const kiLoader = document.getElementById('ki-loader');
+
+        kiIframe.onload = () => { kiLoader.style.display = 'none'; };
+
+        function openKI() {
+            kiLoader.style.display = 'block';
+            kiIframe.src = 'https://ki-assistent-alpha.vercel.app/';
+            kiOverlay.classList.add('active');
+        }
+
+        function closeKI() {
+            kiOverlay.classList.remove('active');
+            setTimeout(() => { kiIframe.src = ''; }, 300);
+        }
+
+        // --- Echte Spracherkennung (Web Speech API) ---
         const voiceOverlay = document.getElementById('voice-overlay');
         const voiceStatus = document.getElementById('voice-status');
+        let recognition;
+
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.lang = 'de-DE';
+            recognition.continuous = false;
+            recognition.interimResults = true; // Zeigt Text an während man spricht
+
+            recognition.onstart = () => {
+                voiceStatus.innerText = "Ich höre...";
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                voiceStatus.innerText = transcript;
+                
+                // Wenn der Satz beendet ist, suche starten
+                if(event.results[0].isFinal) {
+                    setTimeout(() => {
+                        stopVoice();
+                        executeGoogleSearch(transcript);
+                    }, 800);
+                }
+            };
+
+            recognition.onerror = (event) => {
+                voiceStatus.innerText = "Fehler beim Erkennen.";
+                setTimeout(stopVoice, 2000);
+            };
+        }
 
         function startVoice(event) {
             if(event) event.stopPropagation();
             voiceOverlay.style.display = 'flex';
             voiceStatus.innerText = "Bereit...";
             
-            // Simuliert das Erkennen von Sprache nach 2 Sekunden
-            setTimeout(() => {
-                voiceStatus.innerText = "Hallo Nexus";
-                setTimeout(() => {
-                    stopVoice();
-                    executeGoogleSearch("Hallo Nexus");
-                }, 1000);
-            }, 2000);
+            if (recognition) {
+                try { recognition.start(); } catch(e) {}
+            } else {
+                voiceStatus.innerText = "Spracherkennung im Browser nicht unterstützt.";
+                setTimeout(stopVoice, 2000);
+            }
         }
 
         function stopVoice() {
             voiceOverlay.style.display = 'none';
+            if (recognition) { try { recognition.stop(); } catch(e) {} }
         }
     </script>
 </body>
